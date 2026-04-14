@@ -112,5 +112,115 @@ function gameObject() {
                 },
             },
         },
-    };
-}
+    }; 
+    
+    
+    
+       
+}   
+    
+        function numPointsScored(playerName) 
+        {
+                const game = gameObject();
+                for (let team in game) 
+                {
+                    const players = game[team].players;
+                    for (let name in players) 
+                    {
+                        if (name === playerName) 
+                        {
+                            return players[name].points;
+                        }
+                    }
+                }
+                  
+        }
+        function shoeSize(playerName)
+        {
+                const game = gameObject();
+                for (let team in game) 
+                {
+                    const players = game[team].players;
+                    for (let name in players) 
+                    {
+                        if (name === playerName) 
+                        {
+                            return players[name].shoe;
+                        }
+                    }
+                }
+        } 
+        function teamColors(teamName)
+        {
+                const game = gameObject();
+                for (let team in game) 
+                {
+                    if (game[team].teamName === teamName) 
+                    {
+                        return game[team].colors;
+                    }
+                }
+        } 
+        function teamNames()
+        {
+                const game = gameObject();
+                const names = [];
+                for (let team in game) 
+                {
+                    names.push(game[team].teamName);
+                }
+                return names;
+        } 
+        function playerNumbers(teamName)
+        {
+                const game = gameObject();
+                for (let team in game) 
+                {
+                    if (game[team].teamName === teamName) 
+                    {
+                        const players = game[team].players;
+                        const numbers = [];
+                        for (let name in players) 
+                        {
+                            numbers.push(players[name].number);
+                        }
+                        return numbers;
+                    }
+                }
+        }
+        function playerStats(playerName)
+        {
+                const game = gameObject();
+                for (let team in game) 
+                {
+                    const players = game[team].players;
+                    for (let name in players) 
+                    {
+                        if (name === playerName) 
+                        {
+                            return players[name];
+                        }
+                    }
+                }
+        }
+        function bigShoeRebounds()
+        {
+                const game = gameObject();
+                let biggestShoeSize = 0;
+                let rebounds = 0;
+                for (let team in game) 
+                {
+                    const players = game[team].players;
+                    for (let name in players) 
+                    {
+                        if (players[name].shoe > biggestShoeSize) 
+                        {
+                            biggestShoeSize = players[name].shoe;
+                            rebounds = players[name].rebounds;
+                        }
+                    }
+                }
+                return rebounds;
+        }        
+console.log(numPointsScored("Jeff Adrien"));
+console.log(shoeSize("Jeff Adrien"));
